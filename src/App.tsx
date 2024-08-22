@@ -7,18 +7,9 @@ import { Input } from "./components/ui/input"
 
 function App() {
   const [type, setType] = useState<string>("")
-  const [time, setTime] = useState<number>(60)
   const [numberOfQuestions, setNumberOfQuestions] = useState<number>(10)
   const [category, setCategory] = useState<string>("")
   const [difficulty, setDifficulty] = useState<string>("")
-
-  const handleTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const valueConfig = /^(\d*)$/
-    const newValue = e.target.value
-    if (valueConfig.test(newValue)) {
-      setTime(newValue === "" ? 0 : Number(newValue))
-    }
-  }
 
   const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const valueConfig = /^([0-9]|[1-4][0-9]|50)?$/
@@ -51,20 +42,12 @@ function App() {
           <h1 className="text-white font-bold w-full text-left">Settings</h1>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-row">
-            <Input
-              onChange={handleNumberChange}
-              value={numberOfQuestions}
-              className="bg-zinc-700 border-none text-white mr-0.5"
-              placeholder="Number Of Questions max-50"
-            />
-            <Input
-              onChange={handleTimeChange}
-              value={time}
-              className="bg-zinc-700 border-none text-white ml-0.5"
-              placeholder="Time (seconds)"
-            />
-          </div>
+          <Input
+            onChange={handleNumberChange}
+            value={numberOfQuestions}
+            className="bg-zinc-700 border-none text-white mr-0.5"
+            placeholder="Number Of Questions max-50"
+          />
 
           <Select onValueChange={handleTypeChange} value={type}>
             <SelectTrigger className="bg-zinc-700 border-none text-white my-1">
