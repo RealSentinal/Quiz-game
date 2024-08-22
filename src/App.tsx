@@ -1,9 +1,11 @@
+import SelectType from "./components/config-components/SelectType"
+
 function App() {
 
   return (
-    <>
-      <h1>hi</h1>
-    </>
+    <div className="w-screen h-screen flex items-center justify-center bg-zinc-950">
+      <SelectType />
+    </div>
   )
 }
 
